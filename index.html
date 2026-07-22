@@ -42,7 +42,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-color);
+            background-image: linear-gradient(135deg, #ffffff, #f0f9ff, #e0f2fe, #f8fafc);
             background-size: 300% 300%;
             animation: gradientShift 15s ease infinite;
             color: var(--text-main);
@@ -50,8 +51,12 @@
             padding: 4rem 2rem 2rem;
             display: flex;
             justify-content: center;
-            transition: color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
             position: relative; 
+        }
+
+        body[data-theme="dark"] {
+            background-image: linear-gradient(135deg, #0f172a, #1e3a8a, #172554, #0f172a);
         }
 
         @keyframes gradientShift {
@@ -131,7 +136,7 @@
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -214,6 +219,13 @@
 
         .card:hover .btn {
             background-color: var(--primary-hover);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 4rem 1rem 1rem; }
+            h1 { font-size: 2.5rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .card { padding: 1.5rem; }
         }
     </style>
 </head>
